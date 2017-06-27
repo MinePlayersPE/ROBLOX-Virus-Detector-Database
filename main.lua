@@ -10,7 +10,7 @@ local function IsScriptMalicious(scrip)
 	return false
 end
 game.DescendantAdded:connect(function(child)
-	if child:IsA("LuaSourceContainer") and not child:IsA("CoreScript") then
+	if game.IsA(child, "LuaSourceContainer") and not game.IsA(child, "CoreScript") then
 		local IsMalicious, VirusName = IsScriptMalicious(child)
 		if IsMalicious then
 			warn("[VIIRUS DETECTOR] " .. VirusName .. " virus was found at game." .. child:GetFullName() .. "! (could be a false positive)")
